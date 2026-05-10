@@ -70,6 +70,76 @@ which makes traffic distribution across pool members easy to verify.
 
 ---
 
+## OCI Console And Runtime Verification
+
+### Load Balancer Status
+
+<img src="02_public_lb_instance_pool_lb_status.png" width="900"/>
+
+This view confirms that the public OCI Load Balancer is deployed
+and exposed through a public frontend IP.
+
+---
+
+### Backend Health
+
+<img src="02_public_lb_instance_pool_lb_backend_status.png" width="900"/>
+
+This view shows the load balancer backend health for the instance pool members
+and confirms that the attached backends are serving traffic correctly.
+
+---
+
+### Instance Pool Status
+
+<img src="02_public_lb_instance_pool_status.png" width="900"/>
+
+This view confirms that the OCI instance pool is created and running
+as the backend compute layer for the load balancer.
+
+---
+
+### Instance Configuration
+
+<img src="02_public_lb_instance_pool_intance_configuration.png" width="900"/>
+
+This view shows the instance configuration used by the pool,
+including the template from which backend instances are launched.
+
+---
+
+### Attached Pool Instances
+
+<img src="02_public_lb_instance_pool_attached_instances.png" width="900"/>
+
+This view confirms that multiple compute instances are attached to the pool
+and managed as a single backend capacity group.
+
+---
+
+### Autoscaling Configuration
+
+<img src="02_public_lb_instance_pool_autoscaling_configuration.png" width="900"/>
+
+This view confirms that the autoscaling configuration is created
+for the instance pool backend tier and complements the load balancer integration.
+
+---
+
+### HTTP Access Through The Load Balancer
+
+<img src="02_public_lb_instance_pool_lb_http_access.png" width="900"/>
+
+This runtime verification confirms that:
+- the public load balancer is reachable from the internet
+- traffic is forwarded to a healthy instance pool member
+- the backend response includes the hostname and private IP of the serving node
+
+Refreshing the page should show responses from different pool members
+as the load balancer distributes traffic across the attached instances.
+
+---
+
 ## Notes
 
 This example uses:
