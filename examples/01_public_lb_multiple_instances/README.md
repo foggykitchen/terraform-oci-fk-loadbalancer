@@ -20,7 +20,7 @@ This deployment creates:
 - One **public OCI Load Balancer** listening on port `80`
 - `instance_count` regular compute instances in the private subnet
 - One backend set populated dynamically from the private IPs of all created instances
-- A bootstrap `cloud-init` that installs and starts **NGINX** on every backend instance
+- A bootstrap `cloud-init` that starts a simple built-in HTTP service on every backend instance
 
 Traffic flow:
 - Clients connect to the public IP of the OCI Load Balancer
@@ -74,13 +74,48 @@ which makes traffic distribution easy to verify.
 
 ---
 
+## OCI Console And Runtime Verification
+
+### Load Balancer Status
+
+<img src="01_public_lb_multiple_instances_lb_status.png" width="900"/>
+
+This view confirms that the public OCI Load Balancer is deployed
+and exposed through a public frontend IP.
+
+---
+
+### Backend Health
+
+<img src="01_public_lb_multiple_instances_backends_healthy.png" width="900"/>
+
+This view shows the backend set with multiple private backend instances
+registered and reported as healthy by the OCI Load Balancer health checker.
+
+---
+
+### HTTP Access Through The Load Balancer
+
+<img src="01_public_lb_multiple_instances_http_access_via_lb.png" width="900"/>
+
+This runtime verification confirms that:
+- the public load balancer is reachable from the internet
+- traffic is forwarded to a healthy private backend instance
+- the backend response includes the hostname and private IP of the serving node
+
+Refreshing the page should show responses from different backend instances
+as the load balancer distributes traffic across the backend set.
+
+---
+
 ## Notes
 
 This example uses:
 - a public subnet for the load balancer
 - a private subnet for the application instances
+- Oracle Linux 9 images for faster and more predictable bootstrap behavior
 - static IP-based backend registration in the load balancer module
-- cloud-init bootstrap to install NGINX and publish a simple HTML page on port `80`
+- cloud-init bootstrap to publish a simple HTML page on port `80`
 
 Because the compute layer is instantiated with `count`,
 each created module instance contributes one backend to the load balancer:

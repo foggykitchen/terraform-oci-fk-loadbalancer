@@ -11,3 +11,5 @@ terraform.tfvars.json
 
 examples/**/.terraform/
 examples/**/.terraform.lock.hcl
+examples/**/.debug/
+examples/**/.debug2/

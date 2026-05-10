@@ -21,7 +21,7 @@ This deployment creates:
 - One **public OCI Load Balancer** listening on port `80`
 - One **instance pool** attached to the load balancer backend set
 - Autoscaling configuration with a minimum of `2` and maximum of `4` instances
-- A bootstrap `cloud-init` that installs and starts **NGINX** on every pool instance
+- A bootstrap `cloud-init` that starts a simple built-in HTTP service on every pool instance
 
 Traffic flow:
 - Clients connect to the public IP of the OCI Load Balancer
@@ -75,9 +75,10 @@ which makes traffic distribution across pool members easy to verify.
 This example uses:
 - a public subnet for the load balancer
 - a private subnet for the application instances
+- Oracle Linux 9 images for faster and more predictable bootstrap behavior
 - OCI instance pool attachment via `lb_attachment`
 - threshold-based autoscaling
-- cloud-init bootstrap to install NGINX and publish a simple HTML page on port `80`
+- cloud-init bootstrap to publish a simple HTML page on port `80`
 
 Because this is an instance pool deployment,
 backend registration is managed by the compute layer instead of a static `backends` map.
@@ -106,7 +107,7 @@ terraform destroy
 This example demonstrates:
 - how to deploy a **public OCI Load Balancer**
 - how to attach an **OCI instance pool** to the load balancer
-- how to bootstrap each backend instance with NGINX using cloud-init
+- how to bootstrap each backend instance with a simple HTTP service using cloud-init
 - how to enable threshold-based autoscaling for the backend tier
 
 ---
