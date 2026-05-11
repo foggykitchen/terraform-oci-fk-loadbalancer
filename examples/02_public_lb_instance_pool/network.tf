@@ -75,13 +75,13 @@ module "vcn" {
   }
 
   subnets = {
-    public_lb = {
+    fk_lb_public_subnet = {
       cidr_block                 = "10.90.10.0/24"
       route_table_key            = "public"
       security_list_keys         = ["lb_public"]
       prohibit_public_ip_on_vnic = false
     }
-    private_app = {
+    fk_app_private_subnet = {
       cidr_block                 = "10.90.20.0/24"
       route_table_key            = "private"
       security_list_keys         = ["app_private"]

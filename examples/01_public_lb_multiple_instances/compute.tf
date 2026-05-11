@@ -5,7 +5,7 @@ module "compute" {
   name             = "fk-lb-multiple-instance-${count.index + 1}"
   tenancy_ocid     = var.tenancy_ocid
   compartment_ocid = var.compartment_ocid
-  subnet_id        = module.vcn.subnet_ids["private_app"]
+  subnet_id        = module.vcn.subnet_ids["fk_app_private_subnet"]
 
   deployment_mode          = "instance"
   shape                    = "VM.Standard.E4.Flex"

@@ -1,9 +1,9 @@
 module "loadbalancer" {
-  source = "../.."
+  source = "git::https://github.com/mlinxfeld/terraform-oci-fk-loadbalancer.git?ref=v1.0.0"
 
   name             = "fk-lb-pool"
   compartment_ocid = var.compartment_ocid
-  subnet_ids       = [module.vcn.subnet_ids["public_lb"]]
+  subnet_ids       = [module.vcn.subnet_ids["fk_lb_public_subnet"]]
 
   health_checker = {
     protocol = "HTTP"

@@ -13,7 +13,9 @@ This setup combines:
 
 ---
 
-## Architecture Overview
+## 🧭 Architecture Overview
+
+<img src="02_public_lb_instance_pool_architecture.png" width="900"/>
 
 This deployment creates:
 - A dedicated VCN with one **public subnet** for the load balancer
