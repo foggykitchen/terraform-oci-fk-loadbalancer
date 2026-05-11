@@ -67,7 +67,7 @@ All examples are runnable and demonstrate **incremental load balancing patterns*
 
 ```hcl
 module "loadbalancer" {
-  source = "git::https://github.com/mlinxfeld/terraform-oci-fk-loadbalancer.git?ref=v0.1.0"
+  source = "git::https://github.com/mlinxfeld/terraform-oci-fk-loadbalancer.git?ref=v1.0.0"
 
   name             = "fk-public-lb"
   compartment_ocid = var.compartment_ocid
@@ -108,7 +108,7 @@ module "loadbalancer" {
 
 ```hcl
 module "loadbalancer" {
-  source = "git::https://github.com/mlinxfeld/terraform-oci-fk-loadbalancer.git?ref=v0.1.0"
+  source = "git::https://github.com/mlinxfeld/terraform-oci-fk-loadbalancer.git?ref=v1.0.0"
 
   name             = "fk-public-lb"
   compartment_ocid = var.compartment_ocid

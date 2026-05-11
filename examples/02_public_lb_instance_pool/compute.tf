@@ -1,5 +1,5 @@
 module "compute" {
-  source = "git::https://github.com/mlinxfeld/terraform-oci-fk-compute.git"
+  source = "git::https://github.com/mlinxfeld/terraform-oci-fk-compute.git?ref=v0.1.0"
 
   name             = "fk-lb-instance-pool"
   tenancy_ocid     = var.tenancy_ocid
