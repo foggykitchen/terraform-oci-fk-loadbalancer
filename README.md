@@ -128,7 +128,7 @@ module "loadbalancer" {
 }
 
 module "compute" {
-  source = "git::https://github.com/mlinxfeld/terraform-oci-fk-compute.git?ref=v0.1.0"
+  source = "git::https://github.com/foggykitchen/terraform-oci-fk-compute.git?ref=v0.1.0"
 
   name             = "fk-app-pool"
   compartment_ocid = var.compartment_ocid
@@ -275,8 +275,8 @@ This makes the module useful for:
 
 ## Related Modules & Training
 
-- [terraform-oci-fk-vcn](https://github.com/mlinxfeld/terraform-oci-fk-vcn)
-- [terraform-oci-fk-compute](https://github.com/mlinxfeld/terraform-oci-fk-compute)
+- [terraform-oci-fk-vcn](https://github.com/foggykitchen/terraform-oci-fk-vcn)
+- [terraform-oci-fk-compute](https://github.com/foggykitchen/terraform-oci-fk-compute)
 - [terraform-az-fk-loadbalancer](https://github.com/mlinxfeld/terraform-az-fk-loadbalancer)
 
 ---

@@ -1,6 +1,6 @@
 module "compute" {
   count  = var.instance_count
-  source = "git::https://github.com/mlinxfeld/terraform-oci-fk-compute.git?ref=v0.1.0"
+  source = "git::https://github.com/foggykitchen/terraform-oci-fk-compute.git?ref=v0.1.0"
 
   name             = "fk-lb-multiple-instance-${count.index + 1}"
   tenancy_ocid     = var.tenancy_ocid
