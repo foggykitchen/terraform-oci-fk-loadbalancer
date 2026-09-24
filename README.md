@@ -2,7 +2,7 @@
 
 This repository contains a reusable **Terraform/OpenTofu module** and progressive examples for deploying an **Oracle Cloud Infrastructure (OCI) Load Balancer** as a dedicated traffic distribution layer for OCI compute workloads.
 
-It is part of the **[FoggyKitchen.com training ecosystem](https://foggykitchen.com/courses-2/)** and is designed to work cleanly with reusable infrastructure modules such as **`terraform-oci-fk-vcn`** and **`terraform-oci-fk-compute`**.
+It is part of the **[FoggyKitchen.com training ecosystem](https://foggykitchen.com/)** and is designed to work cleanly with reusable infrastructure modules such as **`terraform-oci-fk-vcn`** and **`terraform-oci-fk-compute`**.
 
 Support expectations are documented in [SUPPORT.md](SUPPORT.md).
 
