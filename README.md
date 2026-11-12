@@ -8,6 +8,21 @@ Support expectations are documented in [SUPPORT.md](SUPPORT.md).
 
 ---
 
+## OCI provider compatibility
+
+Release v2.0.0 requires `oracle/oci >= 9.12.1, < 10.0.0`, matching the BaseDB module. This drops provider 6.x support. Run `tofu init -upgrade` and review a plan before applying to existing infrastructure. Use the previous release (v1.0.0) if your stack still requires OCI 6.x.
+
+Examples use the local module checkout. Configuration validation does not establish runtime behavior or a replacement-free upgrade.
+
+### Plan verification — 2026-11-12
+
+Verified with OpenTofu 1.11.6 and OCI provider 9.13.0 in isolated directories without existing state. Root module validation and all example plans passed using real OCI data-source reads and existing local authentication inputs. No `apply` was run. These are fresh-deployment plans, not state-upgrade or runtime tests.
+
+| Example | Add | Change | Destroy |
+| --- | ---: | ---: | ---: |
+| `01_public_lb_multiple_instances` | 17 | 0 | 0 |
+| `02_public_lb_instance_pool` | 16 | 0 | 0 |
+
 ## Used By
 
 This module is used as a building block by the higher-level [FoggyKitchen Landing Zone Orchestrator](https://github.com/foggykitchen/foggykitchen-landing-zone-orchestrator), where it is composed into Azure, OCI, and multicloud landing zone patterns.
@@ -73,7 +88,7 @@ All examples are runnable and demonstrate **incremental load balancing patterns*
 
 ```hcl
 module "loadbalancer" {
-  source = "git::https://github.com/foggykitchen/terraform-oci-fk-loadbalancer.git?ref=v1.0.0"
+  source = "git::https://github.com/foggykitchen/terraform-oci-fk-loadbalancer.git?ref=v2.0.0"
 
   name             = "fk-public-lb"
   compartment_ocid = var.compartment_ocid
@@ -114,7 +129,7 @@ module "loadbalancer" {
 
 ```hcl
 module "loadbalancer" {
-  source = "git::https://github.com/foggykitchen/terraform-oci-fk-loadbalancer.git?ref=v1.0.0"
+  source = "git::https://github.com/foggykitchen/terraform-oci-fk-loadbalancer.git?ref=v2.0.0"
 
   name             = "fk-public-lb"
   compartment_ocid = var.compartment_ocid
@@ -134,7 +149,7 @@ module "loadbalancer" {
 }
 
 module "compute" {
-  source = "git::https://github.com/foggykitchen/terraform-oci-fk-compute.git?ref=v0.1.0"
+  source = "git::https://github.com/foggykitchen/terraform-oci-fk-compute.git?ref=v0.2.2"
 
   name             = "fk-app-pool"
   compartment_ocid = var.compartment_ocid
